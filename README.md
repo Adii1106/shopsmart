@@ -1,7 +1,3 @@
-# Instructions
+# LocalLoop
 
-1. Use SQLITE3 for database storage implementation
-1. Use Prisma for ORM
-1. Implement at least one full CRUD RESTful API
-1. Deploy it on Render for backend and vercel for frontend
-1. Resolve CORS issue if needed after deployment
+A hyperlocal artisan marketplace bridging the gap between master makers and conscious patrons. Support your neighborhood's heritage through a curated collection of handcrafted pottery, textiles, and more.
