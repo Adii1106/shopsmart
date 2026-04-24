@@ -2,17 +2,15 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('App', () => {
-    it('renders ShopSmart title', () => {
-        // Mock fetch
-        global.fetch = vi.fn(() =>
-            Promise.resolve({
-                json: () => Promise.resolve({ status: 'ok', message: 'Test Msg', timestamp: 'now' })
-            })
-        );
+vi.mock('./context/AuthContext', () => ({
+    useAuth: () => ({ user: null, loading: false, logout: vi.fn() }),
+    AuthProvider: ({ children }) => children
+}));
 
+describe('App', () => {
+    it('renders the login screen initially', () => {
         render(<App />);
-        const linkElement = screen.getByText(/ShopSmart/i);
+        const linkElement = screen.getByText(/Welcome Back|Create Legacy/i);
         expect(linkElement).toBeInTheDocument();
     });
 });
